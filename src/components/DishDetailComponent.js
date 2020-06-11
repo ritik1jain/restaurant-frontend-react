@@ -18,7 +18,7 @@ if(dish!=null){
         return (
         <li key={idx.id} className="list-unstyled">
             <p>{idx.comment}</p>
-            <p><span>-- </span>{idx.author}<span>,</span>{idx.date.slice(0, 10)}</p>
+            <p><span>-- </span>{idx.author}<span>, </span>{new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(idx.date)))}</p>
         </li>
         );
     })
