@@ -1,16 +1,10 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Card,CardImg,CardBody,CardText,CardTitle} from 'reactstrap';
 
-class DishDetail extends Component{
 
-    constructor(props){
-        super(props);
-
-
-    };
-
-render(){
-    let dish=this.props.dishdetails;
+function DishDetail(props)
+{
+    let dish=props.dishdetails;
     let comm;
 
 if(dish!=null){
@@ -48,12 +42,8 @@ if(dish!=null){
         else{
             return(<div></div>);
         }
-    
-};
-
-                            
-    
-
+   
 }
+    
 
 export default DishDetail;
