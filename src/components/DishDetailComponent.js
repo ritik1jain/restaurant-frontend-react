@@ -1,14 +1,15 @@
 import React from 'react';
-import {Card,CardImg,CardBody,CardText,CardTitle} from 'reactstrap';
+import {Card,CardImg,CardBody,CardText,CardTitle,BreadcrumbItem,Breadcrumb} from 'reactstrap';
+import {Link } from 'react-router-dom';
 
 
 function DishDetail(props)
 {
-    let dish=props.dishdetails;
+    let dish=props.dish;
     let comm;
 
 if(dish!=null){
-    comm=dish.comments.map((idx) => {
+    comm=props.comments.map((idx) => {
         return (
         <li key={idx.id} className="list-unstyled">
             <p>{idx.comment}</p>
@@ -18,6 +19,25 @@ if(dish!=null){
     })
     return(
         <div className="container">
+            <div className="row">
+                    <Breadcrumb>
+                        <BreadcrumbItem>
+                            <Link to='/home'>Home</Link>
+                        </BreadcrumbItem>
+                        <BreadcrumbItem>
+                            <Link to='/menu'>Menu</Link>
+                        </BreadcrumbItem>
+                        <BreadcrumbItem active>
+                            {props.dish.name}
+                        </BreadcrumbItem>
+                        </Breadcrumb>
+                        <div className="col-12">
+                            <h3>{props.dish.name}</h3>
+                            <hr />
+                        </div>
+
+                </div>
+                
         <div className="row">
             <div className="col-12 col-md-5 m-1">
             <Card>
