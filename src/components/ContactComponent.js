@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Breadcrumb, BreadcrumbItem, Button, Form, FormGroup,Label,Input,Col} from 'reactstrap';
+import {Breadcrumb, BreadcrumbItem, Button, Form, FormGroup,Label,Input,Col,FormFeedback} from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 class Contact extends Component {
@@ -11,10 +11,16 @@ class Contact extends Component {
             firstname: "",
             lastname: "",
             telnum: "",
-            email: "",
+            email: "", 
             agree: false,
             contactType: "Tel.",
-            message: ""
+            message: "",
+            touched: {
+                firstname: false,
+                lastname: false,
+                telnum: false,
+                email: false
+            }
         };
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -37,6 +43,7 @@ class Contact extends Component {
         event.preventDefault();
     }
 
+    // handleBlur = (field) => 
     
     render(){
     return(
@@ -100,7 +107,7 @@ class Contact extends Component {
                                     <Input type="text" id="firstname" name="firstname"
                                         placeholder="First Name"
                                         value={this.state.firstname}
-                                        onChange={this.handleInputChange} />
+                                         onChange={this.handleInputChange} />
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
